@@ -1,9 +1,3 @@
-
-Scprime_Statistic_ King of Hosts 
- 
-          o 
-       o^/|\^o
-    o_^|\/*\/|^_o
-   o\*`'.\|/.'`*/o
+ScPrimestatistic_for_King_of_Hosts
 
      
