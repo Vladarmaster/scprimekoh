@@ -47,7 +47,8 @@ var x = setInterval(function() {
     document.getElementById("demo").innerHTML = "King of Host!"
   }
 }, 1000);
-   
+   <p>Click the button to sort the table numerically:</p>
+<p><button onclick="sortTable()">Sort</button></p>
    
    </script>
     <table class="table table-bordered table-striped" id="employee_table">
@@ -97,9 +98,9 @@ var x = setInterval(function() {
 0 for sorting by names, 1 for sorting by country: -->
 
 <script>
-function sortTable(n) {
+function sortTable() {
   var table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("myTable");
+  table = document.getElementById("employee_table");
   switching = true;
   // Set the sorting direction to ascending:
   
