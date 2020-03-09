@@ -108,7 +108,7 @@ function sortTable() {
   no switching has been done:*/
   while (switching) {
     //start by saying: no switching is done:
-    switching = true;
+    switching = false;
     rows = table.rows;
     /*Loop through all table rows (except the
     first, which contains table headers):*/
@@ -117,8 +117,8 @@ function sortTable() {
       shouldSwitch = true;
       /*Get the two elements you want to compare,
       one from current row and one from the next:*/
-      x = rows[i].getElementsByTagName("TD")[0];
-      y = rows[i + 1].getElementsByTagName("TD")[0];
+      x = rows[i].getElementsByTagName("TD");
+      y = rows[i + 1].getElementsByTagName("TD");
       //check if the two rows should switch place:
       if (Number(x.innerHTML) < Number(y.innerHTML)) {
         //if so, mark as a switch and break the loop:
