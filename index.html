@@ -78,7 +78,7 @@ var x = setInterval(function() {
 	    value.remainingstorage = parseFloat(value.remainingstorage / 1000000000000).toFixed(2);
 		value.totalstorage = parseFloat(value.totalstorage / 1000000000000).toFixed(2);
 	    totalt = parseFloat(value.totalstorage - value.remainingstorage).toFixed(2);
-		
+		<id="employee_table">
 		employee_data += '<tr>';
 		employee_data += '<td>'+value.netaddress+'</td>';
 		employee_data += '<td>'+value.as+'</td>';
@@ -102,7 +102,7 @@ var x = setInterval(function() {
 <script>
 function sortTable() {
   var table, rows, switching, i, x, y, shouldSwitch;
-  table = document.getElementById("#employee_table");
+  table = document.getElementById("employee_table");
   switching = true;
   /*Make a loop that will continue until
   no switching has been done:*/
