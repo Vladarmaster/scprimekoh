@@ -5,19 +5,89 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   </head>
-      <body>
-	  <style>
-p {
+  <style>
+h1 {
+  color:#6D6D6D ;
+  font-family: verdana;
+  font-size: 300%;
+}
+h2 {
   text-align: center;
-  font-size: 60px;
-  margin-top: 20px;
+  color:#353535;
+  font-family: verdana;
+  font-size: 350%;
+ 
+}
+p  {
+  color:#6D6D6D ;
+  font-family: courier;
+  font-size: 120%;
 }
 </style>
+   </head>
+      <body>
+	 
+
+
    <div class="container">
    <div class="table-responsive">
-   <h1>ScPrime data KING OF HOST</h1>
-    <p id="demo"></p>
+   <h1>ScPrime data- KING OF HOST</h1>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.round {
+  border-radius: 50%;
+}
+</style>
+</head>
+<body>
+
+
+
+
+	
+     <p></p>
+	
+	<h2 id="demo"></h2>
+
+
+   
+
+<p id="demo" onclick="sortTable()">ScPrime providers-Create list</p>
+<br></br>
+
+<a href="scprimetotalstor.html" class="next">Next &raquo;</a>
+
+
+
+<script>
+function myFunction() {
+  document.getElementById("demo").style.color = "red";
+}
+</script>
+
+
+
       <script>
 // Set the date we're counting down to
 var countDownDate = new Date("Mar 31, 2020 00:01:01").getTime();
@@ -52,16 +122,26 @@ var x = setInterval(function() {
    </script>
     <table class="table table-bordered table-striped" id="employee_table">
   <tr>
- 
-<th onclick="sortTable(0)">IP Provider address</th>
-<th onclick="sortTable(1)">Network provider</th>
-<th onclick="sortTable(1)">Total storage [TB]</th>
-<th onclick="sortTable(0)">Remaining storage[TB]</th>
-<th onclick="sortTable(1)">Used storage[TB]</th>
+  
+<th>Used storage[TB]</th>
+<th>IP Provider address</th>
+<th>Network provider</th>
+<th>Total storage [TB]</th>
+<th>Remaining storage[TB]</th>
+<th>Country Name</th>
+
+
+
+
+</tr>
+
  	<table id="employee_table">
+	
 <tr>
 </tr>
   </table>
+  
+  
   </div>
   </div>
 <script>
@@ -75,14 +155,19 @@ var x = setInterval(function() {
 	    value.remainingstorage = parseFloat(value.remainingstorage / 1000000000000).toFixed(2);
 		value.totalstorage = parseFloat(value.totalstorage / 1000000000000).toFixed(2);
 	    totalt = parseFloat(value.totalstorage - value.remainingstorage).toFixed(2);
+	   
 		
 		employee_data += '<tr>';
+	    employee_data += '<td>'+totalt+'</td>';
 		employee_data += '<td>'+value.netaddress+'</td>';
 		employee_data += '<td>'+value.as+'</td>';
 		employee_data += '<td>'+value.totalstorage+'</td>';
 		employee_data += '<td>'+value.remainingstorage+'</td>';
-		employee_data += '<td>'+totalt+'</td>';
-		employee_data += '</tr>';
+		employee_data += '<td>'+value.countryName+'</td>';
+		
+		
+		 
+        employee_data += '</tr>';
 		
 		
 		});
@@ -91,63 +176,46 @@ var x = setInterval(function() {
 	});
 
 	</script>
-	
+
 
 <!--When a header is clicked, run the sortTable function, with a parameter,
 0 for sorting by names, 1 for sorting by country: -->
 
 <script>
-function sortTable(n) {
-  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+function sortTable() {
+  var table, rows, switching, i, x, y, shouldSwitch;
   table = document.getElementById("employee_table");
   switching = true;
-  // Set the sorting direction to ascending:
-  dir = "asc";
-  /* Make a loop that will continue until
-  no switching has been done: */
+  /*Make a loop that will continue until
+  no switching has been done:*/
   while (switching) {
-    // Start by saying: no switching is done:
+    //start by saying: no switching is done:
     switching = false;
     rows = table.rows;
-    /* Loop through all table rows (except the
-    first, which contains table headers): */
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
     for (i = 1; i < (rows.length - 1); i++) {
-      // Start by saying there should be no switching:
+      //start by saying there should be no switching:
       shouldSwitch = false;
-      /* Get the two elements you want to compare,
-      one from current row and one from the next: */
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
-      /* Check if the two rows should switch place,
-      based on the direction, asc or desc: */
-      if (dir == "asc") {
-        if (Number(x.innerHTML) > Number(y.innerHTML)) {
-  shouldSwitch = true;
-  break;
-}
-        }
-      } else if (dir == "desc") {
-        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-          // If so, mark as a switch and break the loop:
-          shouldSwitch = true;
-          break;
-        }
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("td")[0];
+      y = rows[i + 1].getElementsByTagName("td")[0];
+	  
+		
+      //check if the two rows should switch place:
+      if (Number(x.innerHTML) < Number(y.innerHTML)) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+		
+        break;
       }
     }
     if (shouldSwitch) {
-      /* If a switch has been marked, make the switch
-      and mark that a switch has been done: */
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
       switching = true;
-      // Each time a switch is done, increase this count by 1:
-      switchcount ++;
-    } else {
-      /* If no switching has been done AND the direction is "asc",
-      set the direction to "desc" and run the while loop again. */
-      if (switchcount == 0 && dir == "asc") {
-        dir = "desc";
-        switching = true;
-      }
     }
   }
 }
