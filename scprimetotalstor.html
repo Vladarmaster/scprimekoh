@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+h1 {
+  color:#6D6D6D ;
+  font-family: verdana;
+  font-size: 300%;
+}
+h2 {
+  text-align: center;
+  color:#353535;
+  font-family: verdana;
+  font-size: 350%;
+ 
+}
+p  {
+  color:#6D6D6D ;
+  font-family: courier;
+  font-size: 120%;
+}
+</style>
+   </head>
+      <body>
+	 
+
+
+   <div class="container">
+   <div class="table-responsive">
+   <h1>ScPrime data- KING OF HOST</h1>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.next {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.round {
+  border-radius: 50%;
+}
+</style>	
+</head>
+<body>
+
+
+
+
+	
+     <p></p>
+	
+	<h2 id="demo"></h2>     
+	
+
+
+   
+
+<p id="demo" onclick="sortTable()">ScPrime largest space providers-Create list</p>
+<br></br>
+
+<a href="index.html" class="previous">&laquo; Previous</a>
+<a href="uptime.html" class="next">Next &raquo;</a>
+
+<p></p>
+
+<script>
+function myFunction() {
+  document.getElementById("demo").style.color = "red";
+}
+</script>
+
+
+
+      <script>
+// Set the date we're counting down to
+var countDownDate = new Date("Mar 31, 2020 00:01:01").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "King of Host is Borned!"
+  }
+}, 1000);
+   
+   
+   </script>
+    <table class="table table-bordered table-striped" id="employee_table">
+  <tr>
+
+<th>Total storage [TB]</th>
+<th>IP Provider address</th>
+<th>Network provider</th>
+<th>Used storage[TB]</th>
+<th>Remaining storage[TB]</th>
+<th>Country Name</th>
+
+
+</tr>
+
+ 	<table id="employee_table">
+	
+<tr>
+</tr>
+  </table>
+  </div>
+  </div>
+<script>
+  
+  $(document).ready(function(){
+        $.getJSON("adon.json", function(data){
+		var employee_data = '';
+        
+		
+		$.each(data, function(key, value){
+	    value.remainingstorage = parseFloat(value.remainingstorage / 1000000000000).toFixed(2);
+		value.totalstorage = parseFloat(value.totalstorage / 1000000000000).toFixed(2);
+	    totalt = parseFloat(value.totalstorage - value.remainingstorage).toFixed(2);
+	   
+		
+		employee_data += '<tr>';
+	    employee_data += '<td>'+value.totalstorage+'</td>';
+		employee_data += '<td>'+value.netaddress+'</td>';
+		employee_data += '<td>'+value.as+'</td>';
+		employee_data += '<td>'+totalt+'</td>';
+		employee_data += '<td>'+value.remainingstorage+'</td>';
+		employee_data += '<td>'+value.countryName+'</td>';
+		
+		 
+        employee_data += '</tr>';
+		
+		
+		});
+		$('#employee_table').append(employee_data);
+	});
+	});
+
+	</script>
+
+
+<!--When a header is clicked, run the sortTable function, with a parameter,
+0 for sorting by names, 1 for sorting by country: -->
+
+<script>
+function sortTable() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("employee_table");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("td")[0];
+      y = rows[i + 1].getElementsByTagName("td")[0];
+	  
+		
+      //check if the two rows should switch place:
+      if (Number(x.innerHTML) < Number(y.innerHTML)) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+		
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+</script>
+   </div>
+   </body>
+   </html>
