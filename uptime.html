@@ -26,9 +26,6 @@ p  {
 </style>
    </head>
       <body>
-	 
-
-
    <div class="container">
    <div class="table-responsive">
     <h1>ScPrime data- KING OF HOST</h1>
@@ -62,25 +59,12 @@ a:hover {
 </style>	
 </head>
 <body>
-
-
-
-
-	
-     <p></p>
-	
+  <p></p>
 	<h2 id="demo"></h2>     
-	
-
-
-   
-
-<p id="demo" onclick="sortTable()">Uptime score-Create list</p>
+	<p id="demo" onclick="sortTable()">Uptime score-Create list</p>
 <br></br>
 
 <a href="scprimetotalstor.html" class="previous">&laquo; Previous</a>
-
-
 <p></p>
 
 <script>
@@ -88,10 +72,7 @@ function myFunction() {
   document.getElementById("demo").style.color = "red";
 }
 </script>
-
-
-
-      <script>
+  <script>
 // Set the date we're counting down to
 var countDownDate = new Date("Mar 31, 2020 00:01:01").getTime();
 
@@ -108,9 +89,7 @@ var x = setInterval(function() {
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);  
   // Output the result in an element with id="demo"
   document.getElementById("demo").innerHTML = days + "d " + hours + "h "
   + minutes + "m " + seconds + "s ";
@@ -133,12 +112,9 @@ var x = setInterval(function() {
 <th>Provider uptime</th>
 <th>Provider downtime</th>
 <th>Country Name</th>
-
-
 </tr>
 
- 	<table id="employee_table">
-	
+ 	<table id="employee_table">	
 <tr>
 </tr>
   </table>
@@ -147,19 +123,14 @@ var x = setInterval(function() {
 <script>
   
   $(document).ready(function(){
-        $.getJSON("adon.json", function(data){
+        $.getJSON("adon2.json", function(data){
 		var employee_data = '';
         
-		
 		$.each(data, function(key, value){
 		
-	   
 		value.historicuptime = parseFloat(value.historicuptime).toFixed(2);
 		value.historicdowntime = parseFloat(value.historicdowntime).toFixed(2);
 		totalup = parseFloat(value.historicuptime - value.historicdowntime).toFixed(2);
-		
-	 
-		
 		employee_data += '<tr>';
 		employee_data += '<td>'+totalup+'</td>';
 	   employee_data += '<td>'+value.netaddress+'</td>';
