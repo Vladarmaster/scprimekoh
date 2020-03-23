@@ -26,10 +26,7 @@ p  {
 </style>
    </head>
       <body>
-	 
-
-
-   <div class="container">
+	 <div class="container">
    <div class="table-responsive">
    <h1>ScPrime data- KING OF HOST</h1>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,20 +57,10 @@ a:hover {
 }
 </style>	
 </head>
-<body>
-
-
-
-
-	
+<body>	
      <p></p>
 	
 	<h2 id="demo"></h2>     
-	
-
-
-   
-
 <p id="demo" onclick="sortTable()">ScPrime largest space providers-Create list</p>
 <br></br>
 
@@ -87,10 +74,7 @@ function myFunction() {
   document.getElementById("demo").style.color = "red";
 }
 </script>
-
-
-
-      <script>
+   <script>
 // Set the date we're counting down to
 var countDownDate = new Date("Mar 31, 2020 00:01:01").getTime();
 
@@ -107,9 +91,7 @@ var x = setInterval(function() {
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);  
   // Output the result in an element with id="demo"
   document.getElementById("demo").innerHTML = days + "d " + hours + "h "
   + minutes + "m " + seconds + "s ";
@@ -121,7 +103,6 @@ var x = setInterval(function() {
   }
 }, 1000);
    
-   
    </script>
     <table class="table table-bordered table-striped" id="employee_table">
   <tr>
@@ -132,10 +113,7 @@ var x = setInterval(function() {
 <th>Used storage[TB]</th>
 <th>Remaining storage[TB]</th>
 <th>Country Name</th>
-
-
 </tr>
-
  	<table id="employee_table">
 	
 <tr>
@@ -146,27 +124,21 @@ var x = setInterval(function() {
 <script>
   
   $(document).ready(function(){
-        $.getJSON("adon.json", function(data){
+        $.getJSON("adon2.json", function(data){
 		var employee_data = '';
-        
-		
 		$.each(data, function(key, value){
 	    value.remainingstorage = parseFloat(value.remainingstorage / 1000000000000).toFixed(2);
 		value.totalstorage = parseFloat(value.totalstorage / 1000000000000).toFixed(2);
 	    totalt = parseFloat(value.totalstorage - value.remainingstorage).toFixed(2);
-	   
-		
-		employee_data += '<tr>';
+	   		employee_data += '<tr>';
 	    employee_data += '<td>'+value.totalstorage+'</td>';
 		employee_data += '<td>'+value.netaddress+'</td>';
 		employee_data += '<td>'+value.as+'</td>';
 		employee_data += '<td>'+totalt+'</td>';
 		employee_data += '<td>'+value.remainingstorage+'</td>';
 		employee_data += '<td>'+value.countryName+'</td>';
-		
-		 
+			 
         employee_data += '</tr>';
-		
 		
 		});
 		$('#employee_table').append(employee_data);
@@ -174,8 +146,6 @@ var x = setInterval(function() {
 	});
 
 	</script>
-
-
 <!--When a header is clicked, run the sortTable function, with a parameter,
 0 for sorting by names, 1 for sorting by country: -->
 
