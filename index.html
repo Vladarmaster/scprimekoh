@@ -124,7 +124,7 @@ var x = setInterval(function() {
 <script>
   
   $(document).ready(function(){
-        $.getJSON("adon.json", function(data){
+        $.getJSON("adon1.json", function(data){
 		var employee_data = '';
 		$.each(data, function(key, value){
 	    value.remainingstorage = parseFloat(value.remainingstorage / 1000000000000).toFixed(2);
