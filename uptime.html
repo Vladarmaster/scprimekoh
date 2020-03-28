@@ -122,7 +122,7 @@ var x = setInterval(function() {
   </div>
 <script>  
   $(document).ready(function(){
-        $.getJSON("adon1.json", function(data){
+        $.getJSON("adon.json", function(data){
 		var employee_data = '';
         $.each(data, function(key, value){
 		value.historicuptime = parseFloat(value.historicuptime).toFixed(2);
