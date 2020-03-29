@@ -14,12 +14,5 @@ Data are "Used storage","Total storage" and "Uptime"-"Uptime score"
 * `npm install` for installing dependencies
 * Run with the command `scprimekoh.js`
 
-## Web implementation
-
-* Download github repo and copy pweb files to server
-*`npm install` for installing dependencies
-* Start deamon (spd)
-* Start node scprimekoh.js
-
 
      
