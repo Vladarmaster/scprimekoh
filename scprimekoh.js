@@ -62,7 +62,7 @@ function openSettingsFile() {
     var timestamp = Date.now() // Timestamp
 
     // Opening settings file
-    fs.readFile('databases/settings.json', 'utf8', function (err, data) { if (!err) {
+    fs.readFile('addit/settings.json', 'utf8', function (err, data) { if (!err) {
         if (debugMode == true) {console.log("// DEBUG - Found settings file, updating it")}
 
         var settings = JSON.parse(data)
@@ -325,8 +325,8 @@ function nextIP(scpFarms, hostdb, hostsToGeoloc, i, scpGeoloc) {
 
 function compareOldDb(hostdb, scpFarms, scpGeoloc) {
     // Opening the hosts file to re-add the "onlist" value (hosts added to the Filter)
-    if (debugMode == true) {console.log("// DEBUG - compareOldDb(): reading hosts.json and updating it")}
-    fs.readFile('databases/hosts.json', 'utf8', function (err, data) { if (!err) {
+    if (debugMode == true) {console.log("// DEBUG - compareOldDb(): reading adon.json and updating it")}
+    fs.readFile('databases/adon.json', 'utf8', function (err, data) { if (!err) {
         oldHosts = JSON.parse(data);
 
         for (var i = 0; i < hostdb.length; i++) {
@@ -341,15 +341,15 @@ function compareOldDb(hostdb, scpFarms, scpGeoloc) {
         }
 
         // Saving the file
-        fs.writeFileSync('databases/hosts.json', JSON.stringify(hostdb))
+        fs.writeFileSync('databases/adon.json', JSON.stringify(hostdb))
 
         // Next
     scpContracts(scpFarms, scpGeoloc)
 
     } else {
         // If no file was found, it is the first scanning: just proceed
-        if (debugMode == true) {console.log("// DEBUG - No previous hosts.json file. Creating new")}
-        fs.writeFileSync('databases/hosts.json', JSON.stringify(hostdb))
+        if (debugMode == true) {console.log("// DEBUG - No previous adon.json file. Creating new")}
+        fs.writeFileSync('databases/adon.json', JSON.stringify(hostdb))
         scpContracts(scpFarms, scpGeoloc)
     }});
 }
