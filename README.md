@@ -3,7 +3,7 @@
 King of Host ScPrime blockchain competition data.
 Scprimekoh is a script that collects stats of Scprime providers.
 Data are "Used storage","Total storage" and "Uptime"-"Uptime score"
-Websites compute data from the database and output instant results.
+Website compute data from the database and output instant results.
 
 ## Requirements
 
